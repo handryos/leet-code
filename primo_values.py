@@ -17,20 +17,26 @@ def ehPrimo(n):
 
 
 def storeValuesRecursivo(current, limit, values=[]):
-  if current >= limit:
-    return values
-  if ehPrimo(current):
-    values.append(current)
-  return storeValuesRecursivo(current + 1, limit, values)
+  try:
+    if current >= limit:
+      return values
+    if ehPrimo(current):
+      values.append(current)
+    return storeValuesRecursivo(current + 1, limit, values)
+  except:
+    print("Insira um valor válido")
 
 
 def storeValues(limit):
-  values = []
-  for i in range(1, limit):
-    if ehPrimo(i):
-      values.append(i)
+  try:
+    values = []
+    for i in range(1, limit):
+      if ehPrimo(i):
+        values.append(i)
+    return values
 
-  return values
+  except:
+    print("Insira um valor válido")
 
 
 print(storeValuesRecursivo(1, 100))
